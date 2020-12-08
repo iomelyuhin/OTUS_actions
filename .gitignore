@@ -1,3 +1,8 @@
 /venv/
-.pytest_cache
-.idea
+/.pytest_cache
+/.idea
+/__pycache__/
+/ngrok.exe
+/tests/__pycache__/
+/tests/test_views/__pycache__/
+/views/__pycache__/
