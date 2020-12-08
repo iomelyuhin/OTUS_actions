@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Hello
+{% endblock %}
+
+{% block body %}
+  <div class="maincontent">
+      <section class="hero">
+          <div class="hero__container container">
+              <h1 class="hero__title">Развивающие игрушки для детей 1-5 лет</h1>
+              <div class="hero__desc">Доставка по всему Миру</div>
+              <a href="{{ url_for('catalog_app.catalog_list') }}" class="hero__cta cta">Перейти в каталог</a>
+          </div>
+      </section>
+  </div>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Каталог развивающих игрушек
+{% endblock %}
+
+{% block body %}
+    <div class="maincontent">
+			<section class="catalog">
+				<div class="catalog__container container">
+					<h1 class="catalog__title">Каталог развивающих игрушек</h1>
+					<div class="catalog__desc">Доставка по всему Миру</div>
+                    <div class="catalog__item-product-button">
+                        <button id="recover-products" type="button" class="catalog__item-product--btn cta__buy">Восстановить</button>
+                    </div>
+					<ul class="catalog__list">
+						<li class="catalog__item">
+							<h2 class="catalog__subtitle">Развитие моторики</h2>
+							<ul class="catalog__item-products">
+                                {% for product_id in products %}
+                                    <li class="catalog__item-product">
+                                        <a class="my-2" href="{{ url_for('catalog_app.product_detail', product_id=product_id) }}">
+                                            <div class="catalog__item-product-image">
+                                                <img src="{{ url_for('static', filename='/img/content/page.jpg') }}"
+                                                     alt="" class="catalog__item-product-img">
+
+                                            </div>
+                                            <div class="catalog__item-product-text">
+                                                <h3 class="catalog__item-product-title">{{ products[product_id] }}</h3>
+                                                <div class="catalog__item-product-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, maxime ex labore temporibus sunt.</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                {% endfor %}
+							</ul>
+
+						</li>
+					</ul>
+				</div>
+			</section>
+		</div>
+{% endblock %}
+{% block after_body %}
+<script>
+    $('#recover-products').click(function () {
+      $.ajax({
+        url: 'recover/',
+        method: 'POST',
+        success: function (res) {
+          console.log(res)
+          console.log(res.data)
+        },
+        error: function (err) {
+          console.error(err)
+        },
+        complete: function () {
+          window.location = '{{ url_for('catalog_app.catalog_list') }}'
+        },
+      })
+    })
+</script>
+{% endblock %}
+

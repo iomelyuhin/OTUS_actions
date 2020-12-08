@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>
+        {% block title %}
+        {% endblock %}
+    </title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+</head>
+<body>
+    <div class="wrapper">
+		<header class="header">
+			<div class="header__container container">
+				<div class="header__logo header__logo--logo">
+					<a href="{{ url_for('index_app.index_page') }}" class="logo">
+						iToys
+					</a>
+				</div>
+				<div class="header__menu header__menu--menu">
+					<nav class="menu">
+						<ul class="menu__list">
+							<li class="menu__list-item">
+								<a href="{{ url_for('index_app.index_page') }}" class="menu__list-item-link">Главная</a>
+							</li>
+							<li class="menu__list-item">
+								<a href="{{ url_for('catalog_app.catalog_list') }}" class="menu__list-item-link">Каталог</a>
+							</li>
+							<li class="menu__list-item">
+								<a href="{{ url_for('contact_app.contact_page') }}" class="menu__list-item-link">Связаться</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<div class="header__phone header__phone--phone">
+					<a href="tel:911" class="phone">8 800 555 55 55</a>
+				</div>
+			</div>
+		</header>
+    {% block body %}
+    {% endblock %}
+        <footer class="footer">
+			<div class="footer__container container">
+				<div class="footer__rights">
+					<div class="footer__rights-logo footer__copy-logo--logo">
+						<a href="{{ url_for('index_app.index_page') }}" class="logo">iToys</a>
+					</div>
+					<div class="footer__rights-copyright">© 2020 OOO "iToys ltd."</div>
+				</div>
+				<div class="footer__nav footer__nav--menu">
+					<nav class="menu">
+						<ul class="menu__list">
+							<li class="menu__list-item">
+								<a href="{{ url_for('index_app.index_page') }}" class="menu__list-item-link">Главная</a>
+							</li>
+							<li class="menu__list-item">
+								<a href="{{ url_for('catalog_app.catalog_list') }}" class="menu__list-item-link">Каталог</a>
+							</li>
+							<li class="menu__list-item">
+								<a href="{{ url_for('contact_app.contact_page') }}" class="menu__list-item-link">Связаться</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<div class="footer__phone footer__phone--phone">
+					<a href="tel:911" class="phone">8 800 555 55 55</a>
+				</div>
+			</div>
+		</footer>
+	</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+        crossorigin="anonymous"></script>
+{% block after_body %}
+{% endblock %}
+</body>
+</html>

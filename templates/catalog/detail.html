@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Товар
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="catalog__item-product">
+            <div class="catalog__item-product-image">
+                <img src="{{ url_for('static', filename='/img/content/page.jpg') }}"
+                     alt="" class="catalog__item-product-img">
+
+            </div>
+            <div class="catalog__item-product-text">
+                <h3 class="catalog__item-product-title">{{ product_name }}</h3>
+                <div class="catalog__item-product-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, maxime ex labore temporibus sunt.</div>
+                <div class="catalog__item-product-button">
+                    <button id="delete-product" type="button" class="catalog__item-product--btn cta__buy">Удалить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+{% block after_body %}
+  <script>
+  $(function() {
+      $('#delete-product').click(function () {
+          $.ajax({
+              method: 'DELETE',
+              success: function (res) {
+                console.log(res)
+                console.log(res.data)
+              },
+              error: function (err) {
+                console.error(err)
+              },
+              complete: function () {
+                window.location = '{{ url_for('catalog_app.catalog_list') }}'
+              },
+          })
+      })
+  });
+  </script>
+{% endblock %}
