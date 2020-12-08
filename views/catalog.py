@@ -37,7 +37,6 @@ def product_detail(product_id: int):
         product_name=product_name
     )
 
-#test
 
 @catalog_app.route("/recover/", methods=["POST"])
 def recover_products():
