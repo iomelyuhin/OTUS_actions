@@ -8,3 +8,5 @@ install:
 # command to run tests
 script:
   - pytest -v
+after_success:
+- curl -X POST https://99d693e5e596.ngrok.io/deploy-you-never-now
